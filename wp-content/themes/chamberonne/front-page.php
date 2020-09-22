@@ -1,4 +1,6 @@
 <?php
+
+
 /**
  * The main template file
  *
@@ -19,61 +21,44 @@ get_header();
 
     <div class="wrapper">
         <main>
-            <section class="section-main">
-                <div class="slider-main">
-                    <div class="swiper-container big-sl">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="wrap">
-                                    <div class="info">
-                                        <div class="title">
-                                            <h1>SDIS Chamberonne</h1>
-                                        </div>
-                                        <div class="editor">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                                                eros mauris, feugiat quis placerat nec, cursus ac ex. Nulla tellus
-                                                nisi, vulputate in felis et, pellentesque dictum dui. Nam ornare
-                                                elit a libero consequat porta.</p>
-                                        </div>
-                                        <div class="action flex">
-                                            <a href="" class="btn">En savoir plus</a>
-                                            <div class="sl-btn">
-                                                <div class="big-sl-prev swiper-button-prev swiper-button-black"></div>
-                                                <div class="big-sl-next swiper-button-next swiper-button-black"></div>
+            <?php
+            $slider = get_field('slider');
+            if (!empty($slider)) { ?>
+                <section class="section-main">
+                    <div class="slider-main">
+                        <div class="swiper-container big-sl">
+                            <div class="swiper-wrapper">
+                                <?php
+                                foreach ($slider as $slide) { ?>
+                                    <div class="swiper-slide">
+                                        <div class="wrap">
+                                            <div class="info">
+                                                <div class="title">
+                                                    <h1><?= $slide['text_header'] ?></h1>
+                                                </div>
+                                                <div class="editor">
+                                                    <p><?= $slide['description'] ?></p>
+                                                </div>
+                                                <div class="action flex">
+                                                    <a href="<?= $slide['button']['url'] ?>" target="<?= $slide['button']['target'] ?>" class="btn"><?= $slide['button']['title'] ?></a>
+                                                    <div class="sl-btn">
+                                                        <div class="big-sl-prev swiper-button-prev swiper-button-black"></div>
+                                                        <div class="big-sl-next swiper-button-next swiper-button-black"></div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <div class="img" style="background-image: url(<?= $slide['image']['url'] ?>)"></div>
                                     </div>
-                                </div>
-                                <div class="img" style="background-image: url('img/slider/1.jpg')"></div>
+                                    <?php
+                                } ?>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="wrap">
-                                    <div class="info">
-                                        <div class="title">
-                                            <h1>SDIS Chamberonne</h1>
-                                        </div>
-                                        <div class="editor">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                                                eros mauris, feugiat quis placerat nec, cursus ac ex. Nulla tellus
-                                                nisi, vulputate in felis et, pellentesque dictum dui. Nam ornare
-                                                elit a libero consequat porta.</p>
-                                        </div>
-                                        <div class="action flex">
-                                            <a href="" class="btn">En savoir plus</a>
-                                            <div class="sl-btn">
-                                                <div class="big-sl-prev swiper-button-prev swiper-button-black"></div>
-                                                <div class="big-sl-next swiper-button-next swiper-button-black"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="img" style="background-image: url('img/slider/2.jpg')"></div>
-                            </div>
+                            <div class="big-sl-pagination swiper-pagination"></div>
                         </div>
-                        <div class="big-sl-pagination swiper-pagination"></div>
                     </div>
-                </div>
-            </section>
+                </section>
+                <?php
+            } ?>
             <section class="main-info">
                 <div class="wrap">
                     <div class="columns">

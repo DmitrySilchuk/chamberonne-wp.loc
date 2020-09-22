@@ -37,32 +37,42 @@ wp_body_open();
             </a>
             <div class="action">
                 <nav class="nav">
-                    <ul class="menu">
-                        <li class="item">
-                            <a href="" class="link">Présentation</a>
-                            <ul>
-                                <li><a href="formation.php">Sites</a></li>
-                                <li><a href="#">Organisation</a></li>
-                                <li><a href="formation.php">Missions</a></li>
-                                <li><a href="formation.php">Formation</a></li>
-                                <li><a href="vehicles.php">Véhicules</a></li>
-                            </ul>
-                        </li>
-                        <li class="item">
-                            <a href="alarmes.php" class="link">Alarmes</a>
-                        </li>
-                        <li class="item">
-                            <a href="activities-drivers.php" class="link">Activités & divers</a>
-                        </li>
-                        <li class="item">
-                            <a href="#" class="link">Contact</a>
-                        </li>
-                    </ul>
+                    <?php
+                    if( has_nav_menu( 'main_menu' ) ) {
+
+                        wp_nav_menu( [
+                            'menu_class'      => 'menu',
+                            'theme_location'  => 'main_menu',
+                            'container'       => false,
+                        ] );
+                    }
+                    ?>
+                    <!--                    <ul class="menu">-->
+<!--                        <li class="item">-->
+<!--                            <a href="" class="link">Présentation</a>-->
+<!--                            <ul>-->
+<!--                                <li><a href="formation.php">Sites</a></li>-->
+<!--                                <li><a href="#">Organisation</a></li>-->
+<!--                                <li><a href="formation.php">Missions</a></li>-->
+<!--                                <li><a href="formation.php">Formation</a></li>-->
+<!--                                <li><a href="vehicles.php">Véhicules</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                        <li class="item">-->
+<!--                            <a href="alarmes.php" class="link">Alarmes</a>-->
+<!--                        </li>-->
+<!--                        <li class="item">-->
+<!--                            <a href="activities-drivers.php" class="link">Activités & divers</a>-->
+<!--                        </li>-->
+<!--                        <li class="item">-->
+<!--                            <a href="#" class="link">Contact</a>-->
+<!--                        </li>-->
+<!--                    </ul>-->
                 </nav>
-                <a href="connexion.php" class="connect">
-                    <i class="icon icon-profile"></i>
-                    <span>Connexion</span>
-                </a>
+<!--                <a href="connexion.php" class="connect">-->
+<!--                    <i class="icon icon-profile"></i>-->
+<!--                    <span>Connexion</span>-->
+<!--                </a>-->
                 <div class="hamburger">
                     <span class="line"></span>
                     <span class="line"></span>
