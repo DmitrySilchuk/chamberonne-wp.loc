@@ -38,16 +38,23 @@ wp_body_open();
             <div class="action">
                 <nav class="nav">
                     <?php
-                    if( has_nav_menu( 'main_menu' ) ) {
+                    $args = [
+                        'theme_location'  => 'main_menu',
+                        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'container'       => false,
+                    ];
+                    wp_nav_menu($args);
 
-                        wp_nav_menu( [
-                            'menu_class'      => 'menu',
-                            'theme_location'  => 'main_menu',
-                            'container'       => false,
-                        ] );
-                    }
+//                    if(has_nav_menu( 'main_menu' )) {
+//
+//                        wp_nav_menu([
+//                            'theme_location'  => 'main_menu',
+//                            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+//                            'container'       => false,
+//                        ]);
+//                    }
                     ?>
-                    <!--                    <ul class="menu">-->
+<!--                                        <ul class="menu">-->
 <!--                        <li class="item">-->
 <!--                            <a href="" class="link">Présentation</a>-->
 <!--                            <ul>-->

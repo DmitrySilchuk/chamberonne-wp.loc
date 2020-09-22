@@ -48,20 +48,13 @@ function chamberonne_mime_types( array $mime_types ) {
 }
 add_filter( 'upload_mimes', 'chamberonne_mime_types', 1, 1 );
 
-/**
- * Register navigation menus uses wp_nav_menu in five places.
- */
-function chamberonne_menus() {
+function chamberonne_setup() {
+    /**
+     * Register navigation menus uses wp_nav_menu.
+     */
+    register_nav_menus([
+        'main_menu' => esc_html__('Main menu', 'chamberonne'),
+    ]);
 
-    $locations = array(
-        'primary'  => __( 'main menu', 'chamberonne' ),
-//        'expanded' => __( 'Desktop Expanded Menu', 'chamberonne' ),
-//        'mobile'   => __( 'Mobile Menu', 'chamberonne' ),
-//        'footer'   => __( 'Footer Menu', 'chamberonne' ),
-//        'social'   => __( 'Social Menu', 'chamberonne' ),
-    );
-
-    register_nav_menus( $locations );
 }
-
-add_action( 'init', 'chamberonne_menus' );
+add_action('after_setup_theme', 'chamberonne_setup');
