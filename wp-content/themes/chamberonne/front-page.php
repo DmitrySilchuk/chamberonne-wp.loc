@@ -62,17 +62,22 @@ get_header();
             <section class="main-info">
                 <div class="wrap">
                     <div class="columns">
-                        <div class="content">
-                            <div class="block-main">
-                                <div class="title">
-                                    <h2>Les Alarmes</h2>
+                        <?php
+                        $body_content_field = get_field('body_content_field');
+                        if (!empty($body_content_field)) {?>
+                            <div class="content">
+                                <div class="block-main">
+                                    <div class="title">
+                                        <h2><?= $body_content_field['header_body']; ?></h2>
+                                    </div>
+                                    <div class="editor mb-15">
+                                        <p><?= $body_content_field['description_body']; ?></p>
+                                    </div>
+                                    <a href="<?= $body_content_field['button_body']['url']; ?>" target="<?= $body_content_field['button_body']['target']; ?>" class="btn"><?= $body_content_field['button_body']['title']; ?></a>
                                 </div>
-                                <div class="editor mb-15">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eros mauris, feugiat quis placerat nec, cursus ac ex. Nulla tellus nisi, vulputate in felis et, pellentesque dictum dui. Nam ornare elit a libero consequat porta. Quisque rutrum accumsan porttitor. Nunc malesuada urna quis mi varius auctor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce a sapien a velit commodo tincidunt. Vestibulum fermentum mauris id mi dignissim auctor. Donec risus odio, imperdiet vitae placerat at, malesuada eget erat. Phasellus eu elit lacinia lorem maximus tristique. Aliquam luctus, nunc sed dictum faucibus, sem augue vestibulum neque, suscipit pretium metus tortor quis enim.</p>
-                                </div>
-                                <a href="" class="btn">Toutes les alarmes</a>
                             </div>
-                        </div>
+                            <?php
+                        } ?>
                         <aside class="aside">
                             <div class="cont">
                                 <div class="info">
