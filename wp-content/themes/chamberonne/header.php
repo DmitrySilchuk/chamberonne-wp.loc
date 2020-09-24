@@ -32,9 +32,14 @@ wp_body_open();
     </div>
     <div class="wrap">
         <div class="flex">
-            <a href="<?= home_url() ?>" class="logo">
-                <img src="<?= get_field('logo')['url'] ?>" alt="">
-            </a>
+            <?php
+            $logo = get_field('logo', 'option');
+            if (!empty($logo)) {?>
+                <a href="<?= home_url() ?>" class="logo">
+                    <img src="<?= $logo['url'] ?>" alt="">
+                </a>
+                <?php
+            } ?>
             <div class="action">
                 <nav class="nav">
                     <?php
@@ -44,42 +49,12 @@ wp_body_open();
                         'container'       => false,
                     ];
                     wp_nav_menu($args);
-
-//                    if(has_nav_menu( 'main_menu' )) {
-//
-//                        wp_nav_menu([
-//                            'theme_location'  => 'main_menu',
-//                            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-//                            'container'       => false,
-//                        ]);
-//                    }
                     ?>
-<!--                                        <ul class="menu">-->
-<!--                        <li class="item">-->
-<!--                            <a href="" class="link">Présentation</a>-->
-<!--                            <ul>-->
-<!--                                <li><a href="formation.php">Sites</a></li>-->
-<!--                                <li><a href="#">Organisation</a></li>-->
-<!--                                <li><a href="formation.php">Missions</a></li>-->
-<!--                                <li><a href="formation.php">Formation</a></li>-->
-<!--                                <li><a href="vehicles.php">Véhicules</a></li>-->
-<!--                            </ul>-->
-<!--                        </li>-->
-<!--                        <li class="item">-->
-<!--                            <a href="alarmes.php" class="link">Alarmes</a>-->
-<!--                        </li>-->
-<!--                        <li class="item">-->
-<!--                            <a href="activities-drivers.php" class="link">Activités & divers</a>-->
-<!--                        </li>-->
-<!--                        <li class="item">-->
-<!--                            <a href="#" class="link">Contact</a>-->
-<!--                        </li>-->
-<!--                    </ul>-->
                 </nav>
-<!--                <a href="connexion.php" class="connect">-->
-<!--                    <i class="icon icon-profile"></i>-->
-<!--                    <span>Connexion</span>-->
-<!--                </a>-->
+                <a href="#" class="connect">
+                    <i class="icon icon-profile"></i>
+                    <span>Connexion</span>
+                </a>
                 <div class="hamburger">
                     <span class="line"></span>
                     <span class="line"></span>
@@ -121,5 +96,4 @@ wp_body_open();
             <span>Connexion</span>
         </a>
     </div>
-
 </div>

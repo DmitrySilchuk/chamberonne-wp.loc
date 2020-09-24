@@ -40,7 +40,11 @@ get_header();
                                                     <p><?= $slide['description'] ?></p>
                                                 </div>
                                                 <div class="action flex">
-                                                    <a href="<?= $slide['button']['url'] ?>" target="<?= $slide['button']['target'] ?>" class="btn"><?= $slide['button']['title'] ?></a>
+                                                    <a href="<?= $slide['button']['url'] ?>"
+                                                       target="<?= $slide['button']['target'] ?>"
+                                                       class="btn">
+                                                       <?= $slide['button']['title'] ?>
+                                                    </a>
                                                     <div class="sl-btn">
                                                         <div class="big-sl-prev swiper-button-prev swiper-button-black"></div>
                                                         <div class="big-sl-next swiper-button-next swiper-button-black"></div>
@@ -73,87 +77,22 @@ get_header();
                                     <div class="editor mb-15">
                                         <p><?= $body_content_field['description_body']; ?></p>
                                     </div>
-                                    <a href="<?= $body_content_field['button_body']['url']; ?>" target="<?= $body_content_field['button_body']['target']; ?>" class="btn"><?= $body_content_field['button_body']['title']; ?></a>
+                                    <a href="<?= $body_content_field['button_body']['url']; ?>"
+                                       target="<?= $body_content_field['button_body']['target']; ?>"
+                                       class="btn">
+                                       <?= $body_content_field['button_body']['title']; ?>
+                                    </a>
                                 </div>
                             </div>
                             <?php
                         } ?>
-                        <aside class="aside">
-                            <div class="cont">
-                                <div class="info">
-                                    <div class="title">
-                                        <h4>Prochaines activités</h4>
-                                    </div>
-                                    <div class="list-alarms">
-                                        <div class="row">
-                                            <i class="icon icon-picture"></i>
-                                            <span class="date">13.02.20</span>
-                                            <span class="text">APR G.1</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="date">12.02.20</span>
-                                            <span class="text">CCF 1</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="date">11.02.20</span>
-                                            <span class="text">SAN E.1</span>
-                                        </div>
-                                        <div class="row">
-                                            <i class="icon icon-picture"></i>
-                                            <span class="date">10.02.20</span>
-                                            <span class="text">DPS 1.1</span>
-                                        </div>
-                                        <div class="row">
-                                            <i class="icon icon-picture"></i>
-                                            <span class="date">10.02.20</span>
-                                            <span class="text">DPS 1.1</span>
-                                        </div>
-                                    </div>
-                                    <div class="block-btn">
-                                        <a href="" class="btn">Toutes les activités</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="cont">
-                                <div class="info">
-                                    <div class="title">
-                                        <h4>Dernières alarmes</h4>
-                                    </div>
-                                    <div class="list-alarms">
-                                        <div class="row">
-                                            <i class="icon icon-picture"></i>
-                                            <span class="date">29.01.20</span>
-                                            <span class="text">Sauvetage 008</span>
-                                        </div>
-                                        <div class="row">
-                                            <i class="icon icon-picture"></i>
-                                            <span class="date">21.01.20</span>
-                                            <span class="text">Alarme automatique 007</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="date">06.01.20</span>
-                                            <span class="text">Feu 006</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="date">31.12.19</span>
-                                            <span class="text">Inondation 005</span>
-                                        </div>
-                                        <div class="row">
-                                            <span class="date">29.12.19</span>
-                                            <span class="text">Prévention feu 004</span>
-                                        </div>
-                                    </div>
-                                    <div class="block-btn">
-                                        <a href="" class="btn">Toutes les activités</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </aside>
+                        <?php
+                        get_sidebar('home')?>
+
                     </div>
                 </div>
             </section>
         </main>
-    </div>
 
 <?php
 get_footer();

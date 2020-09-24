@@ -1,18 +1,23 @@
 <footer class="footer">
     <div class="wrap">
-        <div class="flex">
-            <a href="" class="logo">
-                <img src="img/logo-foot.svg" alt="" class="white">
-            </a>
-            <div class="footer-info">
-                <strong>SDIS Chamberonne</strong>
-                <span>Case postale 346</span>
-                <span>1024 Ecublens</span>
+        <?php
+        $footer = get_field('footer', 'option');
+        if (!empty($footer)) {?>
+            <div class="flex">
+                <a href="<?= home_url() ?>" class="logo">
+                    <img src="<?= $footer['logo']['url'] ?>" alt="" class="white">
+                </a>
+                <div class="footer-info">
+                    <strong><?= $footer['title'] ?></strong>
+                    <span><?= $footer['postcode'] ?></span>
+                    <span><?= $footer['city'] ?></span>
+                </div>
+                <div class="copyright">
+                    <p><?= $footer['copyright'] ?></p>
+                </div>
             </div>
-            <div class="copyright">
-                <p>© 2020 SDIS Chamberonne | Créé par Emblematik</p>
-            </div>
-        </div>
+            <?php
+        } ?>
     </div>
 </footer>
 
@@ -42,14 +47,7 @@
         </form>
     </div>
 </div>
-
-<!-- CDN -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.6/js/swiper.js"></script>
-
-<!-- LOCAL -->
-<script src="js/function_slider.js"></script>
-<script src="js/main.js"></script>
+</div> <!--.wrapper-->
 
 <?php wp_footer(); ?>
 
