@@ -44,6 +44,7 @@ class Alarme_Widget extends WP_Widget {
         $number_of_posts = wp_count_posts('alarm')->publish;
         $frequency_of_events = round($day_number / $number_of_posts);
         $frequency_of_events_title = sprintf($instance['titleforfrequen_text'], $frequency_of_events);
+
         echo <<<HTML
         <div class="cont">
         <div class="info">
