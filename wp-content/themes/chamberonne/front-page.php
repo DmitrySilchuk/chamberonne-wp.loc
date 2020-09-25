@@ -19,7 +19,6 @@
 get_header();
 ?>
 
-    <div class="wrapper">
         <main>
             <?php
             $slider = get_field('slider');

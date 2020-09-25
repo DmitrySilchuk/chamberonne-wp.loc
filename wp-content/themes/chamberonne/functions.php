@@ -282,4 +282,20 @@ add_action( 'widgets_init', 'chamberonne_sidebars' );
 require get_template_directory() . '/inc/Prochainesactivits_Widget.php';
 require get_template_directory() . '/inc/Derniresalarmes_Widget.php';
 
+// Register Sidebars
+function alarme_sidebars() {
 
+    $args = array(
+        'id'            => 'alarme_sidebar',
+        'name'          => __( 'Alarme sidebar', 'chamberonne' ),
+        'before_title'  => '',
+		'after_title'   => '',
+		'before_widget' => '',
+		'after_widget'  => '',
+	);
+	register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'alarme_sidebars' );
+
+require get_template_directory() . '/inc/Alarme_Widget.php';
