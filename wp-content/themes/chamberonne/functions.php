@@ -61,6 +61,62 @@ function chamberonne_setup() {
 add_action('after_setup_theme', 'chamberonne_setup');
 
 // Register Custom Post Type
+function divers_post_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Divers', 'Post Type General Name', 'chamberonne' ),
+        'singular_name'         => _x( 'Divers', 'Post Type Singular Name', 'chamberonne' ),
+        'menu_name'             => __( 'Divers', 'chamberonne' ),
+        'name_admin_bar'        => __( 'Divers', 'chamberonne' ),
+        'archives'              => __( 'Divers Archives', 'chamberonne' ),
+        'attributes'            => __( 'Divers Attributes', 'chamberonne' ),
+        'parent_item_colon'     => __( 'Parent Divers:', 'chamberonne' ),
+        'all_items'             => __( 'All Divers', 'chamberonne' ),
+        'add_new_item'          => __( 'Add New Divers', 'chamberonne' ),
+        'add_new'               => __( 'Add New Divers', 'chamberonne' ),
+        'new_item'              => __( 'New Divers', 'chamberonne' ),
+        'edit_item'             => __( 'Edit Divers', 'chamberonne' ),
+        'update_item'           => __( 'Update Divers', 'chamberonne' ),
+        'view_item'             => __( 'View Divers', 'chamberonne' ),
+        'view_items'            => __( 'View Divers', 'chamberonne' ),
+        'search_items'          => __( 'Search Divers', 'chamberonne' ),
+        'not_found'             => __( 'Not found', 'chamberonne' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'chamberonne' ),
+        'featured_image'        => __( 'Featured Image', 'chamberonne' ),
+        'set_featured_image'    => __( 'Set featured image', 'chamberonne' ),
+        'remove_featured_image' => __( 'Remove featured image', 'chamberonne' ),
+        'use_featured_image'    => __( 'Use as featured image', 'chamberonne' ),
+        'insert_into_item'      => __( 'Insert into divers', 'chamberonne' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this divers', 'chamberonne' ),
+        'items_list'            => __( 'Divers list', 'chamberonne' ),
+        'items_list_navigation' => __( 'Divers list navigation', 'chamberonne' ),
+        'filter_items_list'     => __( 'Filter divers list', 'chamberonne' ),
+    );
+    $args = array(
+        'label'                 => __( 'Divers', 'chamberonne' ),
+        'description'           => __( 'Post Type Description', 'chamberonne' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+        'taxonomies'            => array( 'type', ' commune' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'divers', $args );
+
+}
+add_action( 'init', 'divers_post_type', 0 );
+
+// Register Custom Post Type
 function alarm_type() {
 
     $labels = array(
@@ -151,7 +207,7 @@ function type_taxonomy() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
     );
-    register_taxonomy( 'types', array( 'alarm', 'activity' ), $args );
+    register_taxonomy( 'types', array( 'alarm', 'activity', 'divers' ), $args );
 
 }
 add_action( 'init', 'type_taxonomy', 0 );
@@ -247,7 +303,7 @@ function commune_taxonomy() {
         'show_in_nav_menus'          => true,
         'show_tagcloud'              => true,
     );
-    register_taxonomy( 'commune', array( 'alarm', 'activity' ), $args );
+    register_taxonomy( 'commune', array( 'alarm', 'activity', 'divers' ), $args );
 
 }
 add_action( 'init', 'commune_taxonomy', 0 );
