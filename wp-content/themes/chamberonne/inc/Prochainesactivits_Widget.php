@@ -46,7 +46,7 @@ class Prochainesactivits_Widget extends WP_Widget
                 )
             ),
             'orderby' => 'meta_value',
-            'order' => 'DESC'
+            'order' => 'ASC'
         ));
 
         if (!empty($posts)) {

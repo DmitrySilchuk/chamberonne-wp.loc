@@ -96,7 +96,7 @@ function alarm_type() {
         'label'                 => __( 'Alarme', 'chamberonne' ),
         'description'           => __( 'Alarme Description', 'chamberonne' ),
         'labels'                => $labels,
-        'supports'              => array( 'title', 'editor', 'thumbnail' ),
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes', 'post-formats' ),
         'taxonomies'            => array( 'type', 'commune' ),
         'hierarchical'          => false,
         'public'                => true,
