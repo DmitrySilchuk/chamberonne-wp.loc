@@ -354,6 +354,22 @@ function chamberonne_alarme_sidebars() {
 }
 add_action( 'widgets_init', 'chamberonne_alarme_sidebars' );
 
+// Register Sidebars
+function chamberonne_activities_divers_sidebars() {
+
+    $args = array(
+        'id'            => 'activities_divers_sidebar',
+        'name'          => __( 'Activities Divers sidebar', 'chamberonne' ),
+        'before_title'  => '',
+        'after_title'   => '',
+        'before_widget' => '',
+        'after_widget'  => '',
+    );
+    register_sidebar( $args );
+
+}
+add_action( 'widgets_init', 'chamberonne_activities_divers_sidebars' );
+
 require get_template_directory() . '/inc/Alarme_Widget.php';
 require get_template_directory() . '/inc/Alarmesarchives_Widget.php';
 

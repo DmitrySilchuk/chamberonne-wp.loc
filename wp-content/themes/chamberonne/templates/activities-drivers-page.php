@@ -157,7 +157,7 @@ get_header();
                         </div>
                     </div>
                     <?php
-                    get_sidebar('alarme') ?>
+                    get_sidebar('activities-divers') ?>
                 </div>
             </div>
         </section>
