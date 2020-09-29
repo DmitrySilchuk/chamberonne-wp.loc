@@ -339,7 +339,7 @@ require get_template_directory() . '/inc/Prochainesactivits_Widget.php';
 require get_template_directory() . '/inc/Derniresalarmes_Widget.php';
 
 // Register Sidebars
-function alarme_sidebars() {
+function chamberonne_alarme_sidebars() {
 
     $args = array(
         'id'            => 'alarme_sidebar',
@@ -352,6 +352,9 @@ function alarme_sidebars() {
 	register_sidebar( $args );
 
 }
-add_action( 'widgets_init', 'alarme_sidebars' );
+add_action( 'widgets_init', 'chamberonne_alarme_sidebars' );
 
 require get_template_directory() . '/inc/Alarme_Widget.php';
+require get_template_directory() . '/inc/Alarmesarchives_Widget.php';
+
+$alarm_year = $_GET['alarm_year'];

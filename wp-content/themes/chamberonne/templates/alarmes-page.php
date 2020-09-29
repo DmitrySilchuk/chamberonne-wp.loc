@@ -19,6 +19,10 @@ get_header();
                                 <h1><?= the_title() ?></h1>
                             </div>
                             <?php
+                            $year = 'Y';
+                            if (!empty($alarm_year) && is_numeric($alarm_year)){
+                                $year = $alarm_year;
+                            }
                             $alarms = get_posts(array(
                                 'post_type' => 'alarm',
                                 'posts_per_page' => -1,
@@ -26,8 +30,13 @@ get_header();
                                 'meta_query' => array(
                                     array(
                                         'key' => 'alarm_date',
-                                        'value' => date('Y-01-00 00:00:00'),
+                                        'value' => date($year . '-01-00 00:00:00'),
                                         'compare' => '>'
+                                    ),
+                                    array(
+                                        'key' => 'alarm_date',
+                                        'value' => date($year . '-12-31 23:59:59'),
+                                        'compare' => '<='
                                     )
                                 ),
                                 'orderby' => 'meta_value',
