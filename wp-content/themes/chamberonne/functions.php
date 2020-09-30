@@ -61,6 +61,63 @@ function chamberonne_setup() {
 add_action('after_setup_theme', 'chamberonne_setup');
 
 // Register Custom Post Type
+function vehicle_type() {
+
+    $labels = array(
+        'name'                  => _x( 'Vehicles', 'Post Type General Name', 'chamberonne' ),
+        'singular_name'         => _x( 'Vehicle', 'Post Type Singular Name', 'chamberonne' ),
+        'menu_name'             => __( 'Vehicles', 'chamberonne' ),
+        'name_admin_bar'        => __( 'Vehicle', 'chamberonne' ),
+        'archives'              => __( 'Vehicle Archives', 'chamberonne' ),
+        'attributes'            => __( 'Vehicle Attributes', 'chamberonne' ),
+        'parent_item_colon'     => __( 'Parent Vehicle:', 'chamberonne' ),
+        'all_items'             => __( 'All Vehicles', 'chamberonne' ),
+        'add_new_item'          => __( 'Add New Vehicle', 'chamberonne' ),
+        'add_new'               => __( 'Add New Vehicle', 'chamberonne' ),
+        'new_item'              => __( 'New Vehicle', 'chamberonne' ),
+        'edit_item'             => __( 'Edit Vehicle', 'chamberonne' ),
+        'update_item'           => __( 'Update Vehicle', 'chamberonne' ),
+        'view_item'             => __( 'View Vehicle', 'chamberonne' ),
+        'view_items'            => __( 'View Vehicles', 'chamberonne' ),
+        'search_items'          => __( 'Search Vehicle', 'chamberonne' ),
+        'not_found'             => __( 'Not found', 'chamberonne' ),
+        'not_found_in_trash'    => __( 'Not found in Trash', 'chamberonne' ),
+        'featured_image'        => __( 'Featured Image', 'chamberonne' ),
+        'set_featured_image'    => __( 'Set featured image', 'chamberonne' ),
+        'remove_featured_image' => __( 'Remove featured image', 'chamberonne' ),
+        'use_featured_image'    => __( 'Use as featured image', 'chamberonne' ),
+        'insert_into_item'      => __( 'Insert into vehicle', 'chamberonne' ),
+        'uploaded_to_this_item' => __( 'Uploaded to this vehicle', 'chamberonne' ),
+        'items_list'            => __( 'Vehicles list', 'chamberonne' ),
+        'items_list_navigation' => __( 'Vehicles list navigation', 'chamberonne' ),
+        'filter_items_list'     => __( 'Filter vehicles list', 'chamberonne' ),
+    );
+    $args = array(
+        'label'                 => __( 'Vehicle', 'chamberonne' ),
+        'description'           => __( 'Post Type Description', 'chamberonne' ),
+        'labels'                => $labels,
+        'supports'              => array( 'title', 'editor', 'thumbnail', 'page-attributes' ),
+        'taxonomies'            => array( 'commune', ' types', 'vehicle_categories' ),
+        'hierarchical'          => false,
+        'public'                => true,
+        'show_ui'               => true,
+        'show_in_menu'          => true,
+        'menu_position'         => 5,
+        'menu_icon'             => 'dashicons-car',
+        'show_in_admin_bar'     => true,
+        'show_in_nav_menus'     => true,
+        'can_export'            => true,
+        'has_archive'           => true,
+        'exclude_from_search'   => false,
+        'publicly_queryable'    => true,
+        'capability_type'       => 'page',
+    );
+    register_post_type( 'vehicle', $args );
+
+}
+add_action( 'init', 'vehicle_type', 0 );
+
+// Register Custom Post Type
 function divers_post_type() {
 
     $labels = array(
@@ -308,6 +365,45 @@ function commune_taxonomy() {
 }
 add_action( 'init', 'commune_taxonomy', 0 );
 
+// Register Custom Taxonomy
+function vehicle_taxonomy() {
+
+    $labels = array(
+        'name'                       => _x( 'Vehicle categories', 'Taxonomy General Name', 'chamberonne' ),
+        'singular_name'              => _x( 'Vehicle category', 'Taxonomy Singular Name', 'chamberonne' ),
+        'menu_name'                  => __( 'Vehicle category', 'chamberonne' ),
+        'all_items'                  => __( 'All Items', 'chamberonne' ),
+        'parent_item'                => __( 'Parent Item', 'chamberonne' ),
+        'parent_item_colon'          => __( 'Parent Item:', 'chamberonne' ),
+        'new_item_name'              => __( 'New Item Name', 'chamberonne' ),
+        'add_new_item'               => __( 'Add New Item', 'chamberonne' ),
+        'edit_item'                  => __( 'Edit Item', 'chamberonne' ),
+        'update_item'                => __( 'Update Item', 'chamberonne' ),
+        'view_item'                  => __( 'View Item', 'chamberonne' ),
+        'separate_items_with_commas' => __( 'Separate items with commas', 'chamberonne' ),
+        'add_or_remove_items'        => __( 'Add or remove items', 'chamberonne' ),
+        'choose_from_most_used'      => __( 'Choose from the most used', 'chamberonne' ),
+        'popular_items'              => __( 'Popular Items', 'chamberonne' ),
+        'search_items'               => __( 'Search Items', 'chamberonne' ),
+        'not_found'                  => __( 'Not Found', 'chamberonne' ),
+        'no_terms'                   => __( 'No items', 'chamberonne' ),
+        'items_list'                 => __( 'Items list', 'chamberonne' ),
+        'items_list_navigation'      => __( 'Items list navigation', 'chamberonne' ),
+    );
+    $args = array(
+        'labels'                     => $labels,
+        'hierarchical'               => true,
+        'public'                     => true,
+        'show_ui'                    => true,
+        'show_admin_column'          => true,
+        'show_in_nav_menus'          => true,
+        'show_tagcloud'              => true,
+    );
+    register_taxonomy( 'vehicle_categories', array( 'vehicle' ), $args );
+
+}
+add_action( 'init', 'vehicle_taxonomy', 0 );
+
 if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
@@ -374,3 +470,4 @@ require get_template_directory() . '/inc/Alarme_Widget.php';
 require get_template_directory() . '/inc/Alarmesarchives_Widget.php';
 
 $alarm_year = $_GET['alarm_year'];
+

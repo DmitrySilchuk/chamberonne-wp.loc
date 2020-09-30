@@ -27,5 +27,32 @@ jQuery(document).ready(function($){
     });
   });
 
+  $('.js-action-btn').on('click', function (e) {
+    e.preventDefault();
+    $('.js-action-btn').removeClass('active');
+    $(this).addClass('active');
+
+    var type = $(this).data('type');
+    if (type === 'all') {
+      $('.js-item-post').fadeIn(300, function () {
+        $(this).show();
+      });
+    }
+    else {
+      $('.js-item-post').each(function () {
+        let currentType = $(this).data('type');
+        if (currentType === type) {
+          $(this).fadeIn(300, function () {
+            $(this).show();
+          });
+        } else {
+          $(this).fadeIn(300, function () {
+            $(this).hide();
+          });
+        }
+      })
+    }
+  });
+
 
 });
