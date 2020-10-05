@@ -39,15 +39,12 @@ jQuery(document).ready(function($){
       });
     }
     else {
+      $('.js-item-post').hide();
       $('.js-item-post').each(function () {
         let currentType = $(this).data('type');
         if (currentType === type) {
           $(this).fadeIn(300, function () {
             $(this).show();
-          });
-        } else {
-          $(this).fadeIn(300, function () {
-            $(this).hide();
           });
         }
       })

@@ -26,14 +26,14 @@ get_header();
                             'post_type' => 'vehicle',
                             'posts_per_page' => -1,
                         ));
-                        $previous_vehicle = '';
+                        $previous_vehicle_categories = [];
                         $output_vehicle_categories_btn = '';
                         foreach ($vehicles as $vehicle) {
                             $vehicle_categories_list = wp_get_post_terms($vehicle->ID, 'vehicle_categories', array('fields' => 'all'));
                             if (!empty($vehicle_categories_list)) {
                                 foreach ($vehicle_categories_list as $vehicle_category) {
-                                    if ($vehicle_category != $previous_vehicle) {
-                                        $previous_vehicle = $vehicle_category;
+                                    if (!in_array($vehicle_category, $previous_vehicle_categories)) {
+                                        $previous_vehicle_categories[] = $vehicle_category;
                                         $output_vehicle_categories_btn .= "<a href='#' data-type='{$vehicle_category->slug}' class='js-action-btn btn'>{$vehicle_category->name}</a>";
                                     }
                                 }
