@@ -41,7 +41,26 @@ class Alarme_Widget extends WP_Widget {
         $current_year = date('Y');
         $day_number = round((time() - strtotime(date('Y')."-01-01")) / (60 * 60 * 24));
 
-        $number_of_posts = wp_count_posts('alarm')->publish;
+        $alarms = get_posts(array(
+            'post_type' => 'alarm',
+            'posts_per_page' => -1,
+            'meta_key' => 'alarm_date',
+            'meta_query' => array(
+                array(
+                    'key' => 'alarm_date',
+                    'value' => date($current_year . '-01-00 00:00:00'),
+                    'compare' => '>'
+                ),
+                array(
+                    'key' => 'alarm_date',
+                    'value' => date($current_year . '-12-31 23:59:59'),
+                    'compare' => '<='
+                )
+            ),
+            'orderby' => 'meta_value',
+            'order' => 'ASC'
+        ));
+        $number_of_posts = count($alarms);
         $frequency_of_events = round($day_number / $number_of_posts);
         $frequency_of_events_title = sprintf($instance['titleforfrequen_text'], $frequency_of_events);
 
