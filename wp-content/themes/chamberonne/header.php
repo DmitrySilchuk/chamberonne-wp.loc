@@ -51,7 +51,7 @@ wp_body_open();
                     wp_nav_menu($args);
                     ?>
                 </nav>
-                <a href="#" class="connect">
+                <a href="connexion" class="connect">
                     <i class="icon icon-profile"></i>
                     <span>Connexion</span>
                 </a>
