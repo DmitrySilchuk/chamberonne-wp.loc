@@ -38,30 +38,30 @@ get_header();
                         <div class="point-desc">
                             <div class="info-list">
                                 <div class="row">
-                                    <strong>Numéro d’alarme:</strong>
+                                    <strong><?php _e('Numéro d’alarme:', 'chamberonne') ?></strong>
                                     <span><?= $number ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Description:</strong>
+                                    <strong><?php _e('Description:', 'chamberonne') ?></strong>
                                     <span><?= $description ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Commune:</strong>
+                                    <strong><?php _e('Commune:', 'chamberonne') ?></strong>
                                     <span><?= $commune ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Date:</strong>
+                                    <strong><?php _e('Date:', 'chamberonne') ?></strong>
                                     <span><?= date_format($alarm_date, 'l d F Y, H:i') ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Type:</strong>
+                                    <strong><?php _e('Type:', 'chamberonne') ?></strong>
                                     <span><?= $type ?></span>
                                 </div>
                             </div>
                             <?php
                             $alarme_button = get_field('alarmes_button', 'option');
                             if (!empty($alarme_button)) { ?>
-                                <a href="<?= $alarme_button ?>" class="btn">Toutes les alarmes</a>
+                                <a href="<?= $alarme_button ?>" class="btn"><?php _e('Toutes les alarmes', 'chamberonne') ?></a>
                                 <?php
                             } ?>
                         </div>

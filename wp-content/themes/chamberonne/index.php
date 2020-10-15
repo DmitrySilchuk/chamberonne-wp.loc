@@ -23,7 +23,7 @@ get_header();
                 <h2><?php the_title() ?></h2>
                 <p><?php the_content(); ?></p>
             <?php endwhile; else : ?>
-                <p>No records.</p>
+                <p><?php _e('No records.', 'chamberonne'); ?></p>
             <?php endif;
             ?>
         </section>

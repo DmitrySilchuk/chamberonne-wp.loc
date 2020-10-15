@@ -40,34 +40,34 @@ get_header();
                         <div class="point-desc">
                             <div class="info-list info-active">
                                 <div class="row">
-                                    <strong>Date:</strong>
+                                    <strong><?php _e('Date:', 'chamberonne'); ?></strong>
                                     <span><?= $date_time ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Description:</strong>
+                                    <strong><?php _e('Description:', 'chamberonne'); ?></strong>
                                     <span><?= $vehicle_description ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Entrée en service:</strong>
+                                    <strong><?php _e('Entrée en service:', 'chamberonne'); ?></strong>
                                     <span><?= $vehicle_entry_into_service ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Participants:</strong>
+                                    <strong><?php _e('Participants:', 'chamberonne'); ?></strong>
                                     <span><?= $vehicle_participants ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Directeur d’exercice:</strong>
+                                    <strong><?php _e('Directeur d’exercice:', 'chamberonne'); ?></strong>
                                     <span><?= $vehicle_exercise_director ?></span>
                                 </div>
                                 <div class="row">
-                                    <strong>Commentaires:</strong>
+                                    <strong><?php _e('Commentaires:', 'chamberonne'); ?></strong>
                                     <span><?= $vehicle_comments ?></span>
                                 </div>
                             </div>
                             <?php
                             $vehicle_button = get_field('vehicles_button', 'option');
                             if (!empty($vehicle_button)) { ?>
-                                <a href="<?= $vehicle_button ?>" class="btn">Tous les véhicules</a>
+                                <a href="<?= $vehicle_button ?>" class="btn"><?php _e('Tous les véhicules', 'chamberonne'); ?></a>
                                 <?php
                             }?>
                         </div>
